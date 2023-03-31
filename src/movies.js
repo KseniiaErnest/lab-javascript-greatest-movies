@@ -7,35 +7,66 @@ function getAllDirectors(moviesArray) {
   }
 
   //Solution Bonus - Iteration 1.1: 
-  function getAllDirectors(moviesArray) {
-    const newArr = moviesArray.map(element => {
-      let director = element.director;
-      return director;
-    });
-    let newArray = [];
-    newArr.forEach(el => {
-      if (!newArray.includes(el)) {
-        newArray.push(el);
-      }
-    });
+  // function getAllDirectors(moviesArray) {
+  //   const newArr = moviesArray.map(element => {
+  //     let director = element.director;
+  //     return director;
+  //   });
+  //   let newArray = [];
+  //   newArr.forEach(el => {
+  //     if (!newArray.includes(el)) {
+  //       newArray.push(el);
+  //     }
+  //   });
     
-    return newArray;
+  //   return newArray;
   
-    }
+  //   }
   
   console.log(getAllDirectors(movies));
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
-function howManyMovies(moviesArray) {}
+function howManyMovies(moviesArray) {
+  if (moviesArray === []) {
+    return 0;
+  };
+  
+  let movieCount = 0;
+  
+  const movieSS = moviesArray.filter(element => {
+    if (element.director === 'Steven Spielberg') {
+      movieCount++;
+    } 
+  });
+  return movieCount;
+}
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
-function scoresAverage(moviesArray) {}
+function scoresAverage(moviesArray) {
+  let avgScore = moviesArray.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.score / moviesArray.length
+  }, 0);
+
+  return Math.round(avgScore * 100) / 100;
+  
+}
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {}
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
-function orderByYear(moviesArray) {}
+function orderByYear(moviesArray) {
+  let sortedByYear = [...moviesArray].sort((a, b) => {
+    if (a.year > b. year) {
+      return 1
+    } else if (a.year < b.year) {
+      return -1
+    } else  {
+      return 0
+    } 
+  })
+    return sortedByYear
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(moviesArray) {}
